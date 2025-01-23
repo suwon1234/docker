@@ -49,8 +49,8 @@ services:
     container_name: frontend
     # 백엔드까지 완료된 분들은 프런트엔드 도커파일 작업 진행
     # build: 
-    #   context: ./
-    image: park0628/demo_frontend
+    #   context: ./frontend
+    image: park0628/demo_backend 
     ports:
       - "3000:80"               # nginx에 빌드된 결과를 넣어서 컨테이너 가동
     networks:

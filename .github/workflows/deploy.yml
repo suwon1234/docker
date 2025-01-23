@@ -58,3 +58,22 @@ jobs:
             docker-compose.yml,
             ./nginx/default.conf
           target: /home/ubuntu
+
+
+
+  deploy:
+       runs-on: ubuntu-latest
+# 해당 잡이 진행 될려면 사전에 반드시 다른 잡이 선행되야 한다
+       needs: docker-cicd
+       steps:
+        - name: ec2에 SSH 접속 -> 도커 컴포즈 가동 -> 서비스 세팅완료
+          uses: appleboy/ssh-action@v1.1.0
+          with:
+            host: ${{ secrets.EC2_HOST }}
+            username: ${{ secrets.EC2_USERNAME }}
+            key: ${{ secrets.EC2_KEY }}   
+            script_stop: true
+            
+            script: |
+              sudo docker compose down
+              sudo docker compose up -d
