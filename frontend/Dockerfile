@@ -10,6 +10,9 @@ COPY . .
 # 의존성 설치
 RUN npm install || (echo "npm install failed" && tail -n 50 /app/npm-debug.log && exit 1)
 
+# 디렉토리 구조 확인 (디버깅용)
+RUN echo "디렉토리 구조 확인" && ls -l /app
+
 # 빌드 -> /app/build
 RUN npm run build || (echo "npm run build failed" && tail -n 50 /app/npm-debug.log && exit 1)
 
