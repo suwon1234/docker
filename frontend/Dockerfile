@@ -13,7 +13,8 @@ COPY . .
 RUN npm install
 
 # 빌드 -> /app/build
-RUN npm run build || true
+RUN npm run build
+RUN ls /app/build
 
 # 스테이지 2 -> 서비스, nginx 이미지를 사용, 빌드 결과를 넣어서 구동
 FROM nginx:alpine
