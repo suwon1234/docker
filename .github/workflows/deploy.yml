@@ -3,11 +3,11 @@ name : docker, ci/cd, ec2, hub
 on:
   push:
     branches:
-      -dev
+      - dev
 
 jobs:
   docker-cicd:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
       # 소스코드 체크 아웃
       - name: 소스코드 체크아웃
