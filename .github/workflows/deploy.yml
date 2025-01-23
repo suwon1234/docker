@@ -43,8 +43,8 @@ jobs:
 
       # 프론트 이미지 생성 _> 허브 푸시
       - name:  백엔드 이미지 생성
-      run: |
-        docker build -t park0628/demo_frontend ./frontend
-        docker push park0628/demo_frontend
+        run: |
+          docker build -t park0628/demo_frontend ./frontend
+          docker push park0628/demo_frontend
 
       # ec2 서버로 필요 파일 업로드 (YML, nginx/*.conf)
