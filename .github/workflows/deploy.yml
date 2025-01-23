@@ -49,7 +49,7 @@ jobs:
             # 프런트 이미지 생성 -> 허브(레퍼지토리) 푸시
             - name: 프런트 이미지 생성 -> 허브(레퍼지토리) 푸시
               run: |
-                docker build --no-cache -t park0628/demo_frontend ./frontend
+                docker build -t park0628/demo_frontend ./frontend
                 docker push park0628/demo_frontend
 
             # eC2 서버로 필요 파일 업로드(YML, nginx/*.conf)
